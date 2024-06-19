@@ -1,6 +1,6 @@
 import {Express, Request, Response, NextFunction} from "express";
 import ConsultLink from "../../core/link/service/ConsultLink";
-import Auth from "@src/middleware/auth";
+import Auth from "../../middleware/auth";
 
 interface AuthRequest extends Request {
   user?: {_id: string; email: string};

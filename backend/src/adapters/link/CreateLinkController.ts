@@ -1,6 +1,6 @@
 import {Express, Request, Response} from "express";
 import CreateLink from "../../core/link/service/CreateLink";
-import Auth from "@src/middleware/auth";
+import Auth from "../../middleware/auth";
 
 interface AuthRequest extends Request {
   user?: {_id: string; email: string};
