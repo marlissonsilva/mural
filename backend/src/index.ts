@@ -22,7 +22,7 @@ const port = 4000;
 const db = new ConnectDatabase();
 db.connect();
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "https://mural-mongo-frontend.vercel.app"],
   optionsSuccessStatus: 200,
 };
 
