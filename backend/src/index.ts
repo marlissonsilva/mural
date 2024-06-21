@@ -10,11 +10,11 @@ import CreateLink from "./core/link/service/CreateLink";
 import CreateLinkController from "./adapters/link/CreateLinkController";
 import ConsultLink from "./core/link/service/ConsultLink";
 import ConsultLinkController from "./adapters/link/ConsultLinkController";
-import RepositoryUserInMemory from "./external/memory/RepositoryUserInMemory";
 import ConnectDatabase from "./external/database/connect";
 import RepositoryUserMongoose from "./external/mongoose/RepositoryUserMongoose";
 import RepositoryLinkMongoose from "./external/mongoose/RepositoryLinkMongoose";
-import Auth from "./middleware/auth";
+import DeleteLink from "./core/link/service/DeleteLink";
+import DeleteLinkController from "./adapters/link/DeleteLinkController";
 
 const app = express();
 const port = 4000;
@@ -49,6 +49,9 @@ new CreateLinkController(app, createLink);
 
 const consultLink = new ConsultLink(repositoryLink);
 new ConsultLinkController(app, consultLink);
+
+const deleteLink = new DeleteLink(repositoryLink);
+new DeleteLinkController(app, deleteLink);
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello World</h1>");

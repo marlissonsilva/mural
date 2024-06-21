@@ -1,4 +1,4 @@
-import {Express, Request, Response, NextFunction} from "express";
+import {Express, Request, Response} from "express";
 import ConsultLink from "../../core/link/service/ConsultLink";
 import Auth from "../../middleware/auth";
 
@@ -15,7 +15,7 @@ export default class ConsultLinkController {
     );
     server.get(
       "/link",
-      async (req: AuthRequest, res: Response, next: NextFunction) => {
+      async (req: AuthRequest, res: Response) => {
         try {
           const userId = (req as any).user._id;
           if (!userId) {
