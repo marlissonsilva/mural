@@ -1,6 +1,6 @@
 import {Express, Request, Response} from "express";
-import DeleteLink from "@src/core/link/service/DeleteLink";
-import Auth from "@src/middleware/auth";
+import DeleteLink from "../../core/link/service/DeleteLink";
+import Auth from "../../middleware/auth";
 
 interface AuthRequest extends Request {
   user?: {_id: string; email: string};
