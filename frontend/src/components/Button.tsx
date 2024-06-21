@@ -9,6 +9,7 @@ interface ButtonProps {
     | "purple"
     | "cyan";
   className?: string;
+  widthFull?: boolean;
   children: any;
   onClick?: () => void;
 }
@@ -21,7 +22,7 @@ export default function Button(props: ButtonProps) {
       className={`
             cursor-pointer
             bg-gradient-to-r from-${color ?? color}-500 to-${color ?? color}-800
-            text-white px-4 py-2 rounded-md w-full 
+            text-white px-4 py-2 rounded-md ${props.widthFull ? "w-full" : ""} 
             ${props.className ?? props.className}
         `}
     >

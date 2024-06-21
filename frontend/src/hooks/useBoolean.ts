@@ -1,12 +1,9 @@
-// existe a convenção de sempre começar com "use"
-// São funções que podem sert importadas em qualquer parte do código
-
 import {useState} from "react";
 
 export default function useBoolean(valor: boolean) {
   const [active, setActive] = useState(valor ?? false);
 
-  function toggleactive() {
+  function toggleActive() {
     setActive(!active);
   }
 
@@ -19,7 +16,7 @@ export default function useBoolean(valor: boolean) {
   }
   const r: [boolean, () => void, () => void, () => void] = [
     active,
-    toggleactive,
+    toggleActive,
     activeTrue,
     activeFalse,
   ];

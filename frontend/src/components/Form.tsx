@@ -3,6 +3,7 @@ import Button from "./Button";
 import Input from "./Input";
 import useItem from "@/hooks/useItem";
 import {useRouter} from "next/router";
+import Select from "./Select";
 
 interface FormProps {
   id?: string;
@@ -15,6 +16,10 @@ export default function Form(props: FormProps) {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [color, setColor] = useState("");
+
+  function handleChange(event: any) {
+    setColor(event.target.value);
+  }
 
   useEffect(() => {
     (async () => {
@@ -38,7 +43,7 @@ export default function Form(props: FormProps) {
   };
 
   return (
-    <div className="w-[95vw] max-w-[500px] m-auto space-y-3">
+    <div className="w-[95vw] max-w-[500px] m-auto space-y-6">
       {id ? (
         <Input label="id" readOnly text="Id" value={id} className="mb-5" />
       ) : (
@@ -58,20 +63,16 @@ export default function Form(props: FormProps) {
         value={shortUrl}
         valueChange={setShortUrl}
       />
-      <Input
-        label="color"
-        text="Color"
-        minlength={3}
-        value={color}
-        valueChange={setColor}
-      />
+
+      <Select onChange={(event: any) => handleChange(event)} />
 
       <div className="flex justify-end mt-7">
-        <Button color="blue" className="mr-2" onClick={handleSave}>
+        <Button color="blue" className="mr-2" widthFull onClick={handleSave}>
           {id ? "Alterar" : "Salvar"}
         </Button>
         <Button
           color="red"
+          widthFull
           onClick={() => {
             router.push("/Dashboard");
           }}

@@ -21,7 +21,6 @@ export default function Auth() {
     try {
       const response = await Request.post("/user/login", dataToCheck);
       if (!response.status) {
-        console.log(response)
         Request.addToken(response);
         setLogged(true);
         router.push("/Dashboard");
@@ -29,7 +28,6 @@ export default function Auth() {
       }
       window.alert("Usuário ou senha incorretos");
     } catch (error) {
-      console.log(error);
       window.alert("Usuário ou senha incorretos");
     }
   };
@@ -46,14 +44,11 @@ export default function Auth() {
         );
         return;
       }
-      console.log("Usuário cadastrado");
       setName("");
       setEmail("");
       setPassword("");
       setAction("login");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   function handleRequest(event: any) {
@@ -87,13 +82,14 @@ export default function Auth() {
       >
         <div className="w-full ">
           <div className="flex gap-6 mb-6 justify-between">
-            <Button color="green" onClick={handleClickBtnLogin}>
+            <Button color="green" onClick={handleClickBtnLogin} widthFull>
               Login
             </Button>
             <Button
               color="cyan"
               className="bg-cy"
               onClick={handleClickBtnCreate}
+              widthFull
             >
               Registar
             </Button>

@@ -10,7 +10,7 @@ export default class Request {
 
   static port: number = 4000;
   static urlBase: string = process.env.NEXT_PUBLIC_URL_API as string;
-
+  // `http://localhost:${this.port}`
   static addToken(token: string) {
     Request.headers = {...Request.headers, Authorization: `Bearer ${token}`};
     return;
@@ -45,7 +45,6 @@ export default class Request {
 
   static async post(urlAddon: string, bodyData: any) {
     const result = await Request.genericRequest("POST", urlAddon, bodyData);
-    console.log(result);
     return result;
   }
 

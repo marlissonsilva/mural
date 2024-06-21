@@ -1,42 +1,41 @@
-import namer from "color-namer";
 import Layout from "@/components/Layout";
-import useItem from "@/hooks/useItem";
-import Link from "next/link";
-import {IconPlus} from "@tabler/icons-react";
+import {IconEdit, IconPlus} from "@tabler/icons-react";
 import {useRouter} from "next/router";
-import {useState} from "react";
+import ItemLink from "@/components/ItemLink";
+import useBoolean from "@/hooks/useBoolean";
 
 interface LinksProps {}
 
 export default function Links(props: LinksProps) {
-  const {items} = useItem();
-  console.log(items);
+  const [activeEdition, toggleActive] =
+    useBoolean(false);
   const router = useRouter();
 
   function handleRedirectNew() {
     router.push("/New");
   }
 
+  function handleToAllowEdition() {
+    toggleActive();
+  }
+
   return (
     <Layout
       title="Lista de links"
-      icon={
-        <IconPlus className=" border" size={30} onClick={handleRedirectNew} />
+      iconPlus={
+        <IconPlus className="border text-white  border-zinc-600 rounded-md" size={35} stroke={1} onClick={handleRedirectNew} />
+      }
+      iconEdit={
+        <IconEdit
+          className={`border  rounded-md  border-zinc-600 ${activeEdition ? "text-blue-600": "text-white"}`}
+          size={35} stroke={1}
+          onClick={handleToAllowEdition}
+        />
       }
     >
-      <div className="flex gap-5 flex-wrap">
-        {items?.map((item, index) => (
-          <Link
-            key={item._id}
-            href={item.url}
-            target="_blank"
-            className={`px-8 py-3 border text-zinc-100 rounded-lg
-              bg-${item.color}-500`}
-          >
-            {item.shortUrl}
-          </Link>
-        ))}
-      </div>
+      <section className="flex gap-6 flex-wrap ">
+          <ItemLink allowEdition={activeEdition}/>
+      </section>
     </Layout>
   );
 }
