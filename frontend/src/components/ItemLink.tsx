@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import {IconEdit, IconTrash} from "@tabler/icons-react";
 import Link from "next/link";
 import useItem from "@/hooks/useItem";
+import Image from "next/image";
 interface LinkProps {
   allowEdition: boolean;
 }
@@ -23,8 +25,9 @@ export default function ItemLink(props: LinkProps) {
             key={item._id}
             href={item.url}
             target="_blank"
-            className={`px-8 py-3 border text-${item.color} rounded-lg`}
+            className={`flex gap-4 px-8 py-3 border text-${item.color} rounded-lg`}
           >
+            <img src={item.icon} alt={item.shortUrl} className="w-6 h-6 rounded-xl"/>
             {item.shortUrl}
           </Link>
           <div
