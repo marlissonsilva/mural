@@ -3,6 +3,7 @@ export default interface Link {
   url: string;
   shortUrl: string;
   color: string;
+  icon: string;
   createdAt: Date;
   userId: string;
 }
