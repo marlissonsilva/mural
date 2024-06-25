@@ -1,5 +1,46 @@
 export const colors = [
-  {value: "gray-50", label: "Gray 50"},
+  {value: "blue-100", label: "Blue 100"},
+  {value: "blue-200", label: "Blue 200"},
+  {value: "blue-300", label: "Blue 300"},
+  {value: "blue-400", label: "Blue 400"},
+  {value: "blue-500", label: "Blue 500"},
+  {value: "blue-600", label: "Blue 600"},
+  {value: "blue-700", label: "Blue 700"},
+  {value: "blue-800", label: "Blue 800"},
+  {value: "blue-900", label: "Blue 900"},
+  
+
+  {value: "slate-100", label: "Slate 100"},
+  {value: "slate-200", label: "Slate 200"},
+  {value: "slate-300", label: "Slate 300"},
+  {value: "slate-400", label: "Slate 400"},
+  {value: "slate-500", label: "Slate 500"},
+  {value: "slate-600", label: "Slate 600"},
+  {value: "slate-700", label: "Slate 700"},
+  {value: "slate-800", label: "Slate 800"},
+  {value: "slate-900", label: "Slate 900"},
+
+  {value: "zinc-100", label: "Zinc 100"},
+  {value: "zinc-200", label: "Zinc 200"},
+  {value: "zinc-300", label: "Zinc 300"},
+  {value: "zinc-400", label: "Zinc 400"},
+  {value: "zinc-500", label: "Zinc 500"},
+  {value: "zinc-600", label: "Zinc 600"},
+  {value: "zinc-700", label: "Zinc 700"},
+  {value: "zinc-800", label: "Zinc 800"},
+  {value: "zinc-900", label: "Zinc 900"},
+
+  
+  {value: "orange-100", label: "Orange 100"},
+  {value: "orange-200", label: "Orange 200"},
+  {value: "orange-300", label: "Orange 300"},
+  {value: "orange-400", label: "Orange 400"},
+  {value: "orange-500", label: "Orange 500"},
+  {value: "orange-600", label: "Orange 600"},
+  {value: "orange-700", label: "Orange 700"},
+  {value: "orange-800", label: "Orange 800"},
+  {value: "orange-900", label: "Orange 900"},
+
   {value: "gray-100", label: "Gray 100"},
   {value: "gray-200", label: "Gray 200"},
   {value: "gray-300", label: "Gray 300"},
@@ -10,7 +51,6 @@ export const colors = [
   {value: "gray-800", label: "Gray 800"},
   {value: "gray-900", label: "Gray 900"},
 
-  {value: "red-50", label: "Red 50"},
   {value: "red-100", label: "Red 100"},
   {value: "red-200", label: "Red 200"},
   {value: "red-300", label: "Red 300"},
@@ -21,7 +61,7 @@ export const colors = [
   {value: "red-800", label: "Red 800"},
   {value: "red-900", label: "Red 900"},
 
-  {value: "yellow-50", label: "Yellow 50"},
+  
   {value: "yellow-100", label: "Yellow 100"},
   {value: "yellow-200", label: "Yellow 200"},
   {value: "yellow-300", label: "Yellow 300"},
@@ -32,7 +72,7 @@ export const colors = [
   {value: "yellow-800", label: "Yellow 800"},
   {value: "yellow-900", label: "Yellow 900"},
 
-  {value: "green-50", label: "Green 50"},
+
   {value: "green-100", label: "Green 100"},
   {value: "green-200", label: "Green 200"},
   {value: "green-300", label: "Green 300"},
@@ -42,4 +82,24 @@ export const colors = [
   {value: "green-700", label: "Green 700"},
   {value: "green-800", label: "Green 800"},
   {value: "green-900", label: "Green 900"},
+
+  {value: "rose-100", label: "Rose 100"},
+  {value: "rose-200", label: "Rose 200"},
+  {value: "rose-300", label: "Rose 300"},
+  {value: "rose-400", label: "Rose 400"},
+  {value: "rose-500", label: "Rose 500"},
+  {value: "rose-600", label: "Rose 600"},
+  {value: "rose-700", label: "Rose 700"},
+  {value: "rose-800", label: "Rose 800"},
+  {value: "rose-900", label: "Rose 900"},
+
+  {value: "fuchsia-100", label: "Fuchsia 100"},
+  {value: "fuchsia-200", label: "Fuchsia 200"},
+  {value: "fuchsia-300", label: "Fuchsia 300"},
+  {value: "fuchsia-400", label: "Fuchsia 400"},
+  {value: "fuchsia-500", label: "Fuchsia 500"},
+  {value: "fuchsia-600", label: "Fuchsia 600"},
+  {value: "fuchsia-700", label: "Fuchsia 700"},
+  {value: "fuchsia-800", label: "Fuchsia 800"},
+  {value: "fuchsia-900", label: "Fuchsia 900"},
 ];
