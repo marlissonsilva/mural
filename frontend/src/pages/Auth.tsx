@@ -5,6 +5,7 @@ import {useRouter} from "next/router";
 import Layout from "@/components/Layout";
 import Input from "@/components/Input";
 import useAuth from "@/hooks/useAuth";
+import Load from "@/components/Load";
 
 export default function Auth() {
   const router = useRouter();
@@ -12,46 +13,50 @@ export default function Auth() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const {setLogged} = useAuth();
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
     const dataToCheck = {email, password};
-
     try {
       const response = await Request.post("/user/login", dataToCheck);
       if (!response.status) {
         Request.addToken(response);
         setLogged(true);
         router.push("/Dashboard");
+
         return;
       }
-      window.alert("Usuário ou senha incorretos");
+      window.alert("Usuário ou senha incorretos 1");
+      setLoading(false);
     } catch (error) {
-      window.alert("Usuário ou senha incorretos");
+      window.alert(error);
     }
   };
 
   const handleCreateUser = async (event: any) => {
     event.preventDefault();
     const dataToCheck = {name, email, password};
-
     try {
       const response = await Request.post("/user/create", dataToCheck);
       if (response.status) {
         alert(
           "Erro ao cadastar! Verifique os dados ou confirme se já tem perfil criado"
         );
+
         return;
       }
       setName("");
       setEmail("");
       setPassword("");
       setAction("login");
+      setLoading(false);
     } catch (error) {}
   };
 
   function handleRequest(event: any) {
+    setLoading(true);
     if (action === "login") {
       handleLogin(event);
       return;
@@ -128,11 +133,12 @@ export default function Auth() {
             />
             <Button
               color={action === "login" ? "green" : "cyan"}
-              className="mt-4"
+              className={`mt-4 ${loading ?? "pointer-events-none"}`}
             >
               {action === "login" ? "Login" : "Criar"}
             </Button>
           </form>
+          <Load loading={loading} />
         </div>
       </div>
     </section>
