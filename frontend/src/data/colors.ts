@@ -1,4 +1,6 @@
 export const colors = [
+  {value: "", label: "Selecione uma cor"},
+
   {value: "blue-100", label: "Blue 100"},
   {value: "blue-200", label: "Blue 200"},
   {value: "blue-300", label: "Blue 300"},

@@ -2,22 +2,30 @@
 import {IconEdit, IconTrash} from "@tabler/icons-react";
 import Link from "next/link";
 import useItem from "@/hooks/useItem";
-import Image from "next/image";
+import Load from "./Load";
+import {useState} from "react";
+
 interface LinkProps {
   allowEdition: boolean;
 }
 
 export default function ItemLink(props: LinkProps) {
   const {items, deleteItem} = useItem();
+  const [loading, setLoading] = useState(true);
 
   function renderData() {
-    if (!items || items.length === 0) {
+    if (!items) {
+      return <Load loading={loading} className="text-center" />;
+    }
+
+    if (items?.length === 0) {
       return (
         <div className="flex justify-center w-full mt-8">
           <p className="text-white">Nenhum link cadastrado.</p>
         </div>
       );
     }
+
     return items.map((item) => {
       return (
         <div key={item._id} className="flex flex-col">
@@ -27,7 +35,11 @@ export default function ItemLink(props: LinkProps) {
             target="_blank"
             className={`flex gap-4 px-8 py-3 border text-${item.color} rounded-lg`}
           >
-            <img src={item.icon} alt={item.shortUrl} className="w-6 h-6 rounded-xl"/>
+            <img
+              src={item.icon}
+              alt={item.shortUrl}
+              className="w-6 h-6 rounded-xl"
+            />
             {item.shortUrl}
           </Link>
           <div
